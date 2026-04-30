@@ -10,7 +10,7 @@ public record Resource(ResourceType type, int value) {
         if (value > 10) value = 10;
     }
     
-    //retourne une description de la crise associée si la ressource vient à manquer.
+    //retourne description de la crise associée si la ressource vient à manquer.
      
     public String getCrisisDescription() {
         return switch (type) {
