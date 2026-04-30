@@ -27,8 +27,8 @@ public record Resource(ResourceType type, int value) {
     
     public int getBaseConsumption() {
         return switch (type) {
-            case BERRIES -> 2; // Les Schtroumpfs mangent beaucoup
-            case GOLD -> 1;    // Entretien du village
+            case BERRIES -> 2; // schtroumpfs mangent bcp
+            case GOLD -> 1;    // entretien village
             default -> 0;
         };
     }
