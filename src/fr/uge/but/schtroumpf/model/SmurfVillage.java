@@ -10,6 +10,10 @@ public class SmurfVillage {
     private final Map<ResourceType, Integer> resources;
     private final Map<ResourceType, Integer> totalConsumedResources;
     private final Random random;
+    
+    // ajout de Nassim L. pour methode "preventAttack" de son schtroumpf grognon
+    // si isProtected = true, alors le prochain evenement negatif n'est pas applique
+    private boolean isProtected = false;
 
     public SmurfVillage(Difficulty difficulty) {
         this.difficulty = Objects.requireNonNull(difficulty);
@@ -131,5 +135,22 @@ public class SmurfVillage {
         }
 
         return value;
+    }
+    
+    // Ajout de Nassim L.
+    //
+    public void setProtected(boolean isProtected) {
+        this.isProtected = isProtected;
+    }
+
+    // Méthode pour vérifier l'état (utilisée par le système d'événements)
+    public boolean isProtected() {
+        return isProtected;
+    }
+    
+    public void endTurnCleanup() {
+        this.isProtected = false;
+        // methode de nettoyage, (Nassim L.), pour effacer l'effet de la protection de village de schtroumpf grognon
+        // Plus tard, on pourras ajouter d'autres resets ici si besoin
     }
 }

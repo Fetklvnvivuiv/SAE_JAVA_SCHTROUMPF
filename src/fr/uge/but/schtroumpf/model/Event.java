@@ -38,7 +38,16 @@ public class Event {
     //Applique les effets de l'événement au village
     public void apply(SmurfVillage village) {
         Objects.requireNonNull(village);
-
+        
+        
+     // ---  AJOUT de Nassim L. POUR LA PROTECTION DE GROGNON (methode preventAttack) ---
+        if (village.isProtected()) {
+            // On peut afficher un message via la vue plus tard
+            // Pour l'instant, on bloque simplement l'application des effets
+            return; 
+        }
+        
+        
         for (var entry : effects.entrySet()) {
             ResourceType type = entry.getKey();
             int value = entry.getValue();

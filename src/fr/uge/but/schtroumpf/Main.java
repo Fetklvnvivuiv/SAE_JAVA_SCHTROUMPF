@@ -4,7 +4,7 @@ import fr.uge.but.schtroumpf.model.Difficulty;
 import fr.uge.but.schtroumpf.model.SmurfVillage;
 
 public class Main {
-    public static void main() {
+    public static void main(String args[]) {
         SmurfVillage village = new SmurfVillage(Difficulty.NORMAL);
 
         village.produceRandomResources();
