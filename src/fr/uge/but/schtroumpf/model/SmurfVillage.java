@@ -14,6 +14,10 @@ public class SmurfVillage {
     // ajout de Nassim L. pour methode "preventAttack" de son schtroumpf grognon
     // si isProtected = true, alors le prochain evenement negatif n'est pas applique
     private boolean isProtected = false;
+    
+	// Ajout de Nassim.T
+	// Nombre de tours pendant lesquels le bonus temporaire de moral est actif
+	private int moraleBoostTurns = 0;
 
     public SmurfVillage(Difficulty difficulty) {
         this.difficulty = Objects.requireNonNull(difficulty);
@@ -137,6 +141,17 @@ public class SmurfVillage {
         return value;
     }
     
+	 // Ajout de Nassim.T
+	 // Applique un bonus temporaire de moral au village pendant un nombre de tours donné
+	 public void addTemporaryMoraleBoost(int turns) {
+	     if (turns <= 0) {
+	         throw new IllegalArgumentException("Turns must be positive.");
+	     }
+	
+	     addResource(ResourceType.MORALE, 1);
+	     moraleBoostTurns += turns;
+	 }
+    
     // Ajout de Nassim L.
     //
     public void setProtected(boolean isProtected) {
@@ -150,7 +165,16 @@ public class SmurfVillage {
     
     public void endTurnCleanup() {
         this.isProtected = false;
-        // methode de nettoyage, (Nassim L.), pour effacer l'effet de la protection de village de schtroumpf grognon
-        // Plus tard, on pourras ajouter d'autres resets ici si besoin
+
+        // Ajout de Nassim.T
+        // Diminue la durée du bonus temporaire de moral à chaque fin de tour
+        // Quand le bonus expire, on retire le point de moral ajouté
+        if (moraleBoostTurns > 0) {
+           moraleBoostTurns--;
+
+           if (moraleBoostTurns == 0) {
+            	addResource(ResourceType.MORALE, -1);
+           }
+        }
     }
 }
