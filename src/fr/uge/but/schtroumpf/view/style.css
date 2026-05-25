@@ -1,0 +1,81 @@
+@font-face {
+    font-family: "Balsamiq Sans Regular";
+    src: url("ressource/BalsamiqSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Balsamiq Sans Bold";
+    src: url("ressource/BalsamiqSans-Bold.ttf");
+}
+
+.root {
+    -fx-font-family: "Balsamiq Sans Regular";
+}
+
+#month_container{
+	-fx-border-color : #EAEAEA;
+	-fx-pref-height : 32px;
+	-fx-border-radius : 5px;
+	
+}
+
+#top_container{
+	-fx-padding : 16px;
+	-fx-background-color : white;
+}
+
+#bottom_container{
+	-fx-padding : 16px;
+	-fx-background-color : white;
+	-fx-border-radius : 17
+	px;
+	-fx-border-color : #EAEAEA;
+	
+
+
+}
+
+.month{
+	-fx-border-color : white;
+	-fx-alignment : center;
+	-fx-background-color : white;
+	-fx-text-fill: #9A9A9A;
+	-fx-border-radius : 4px;
+	-fx-font-size : 10px;
+	
+}
+
+.month_on{
+
+	-fx-border-color : black;
+	-fx-alignment : center;
+	-fx-background-color : white;
+	-fx-border-radius : 4px;
+	-fx-font-size : 10px;
+}
+
+.month_off{
+	-fx-border-color : white;
+	-fx-alignment : center;
+	-fx-background-color : white;
+	-fx-border-radius : 4px;
+	-fx-text-fill: #CDCDCD;
+	-fx-strikethrough: true;
+	-fx-font-size : 10px;
+	
+	
+}
+
+.stuff_card{
+	-fx-border-color : #EAEAEA;
+	-fx-border-radius : 4px;
+	-fx-padding : 3px;
+}
+
+.pay_to_win_stuff_card{
+	-fx-border-color : #E0AB27;
+	-fx-border-radius : 4px;
+	-fx-padding : 3px;
+	-fx-background-color : #FCF7E9;
+}
+
