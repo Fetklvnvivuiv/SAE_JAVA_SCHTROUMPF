@@ -1,18 +1,40 @@
 package fr.uge.but.schtroumpf;
 
-import fr.uge.but.schtroumpf.model.Difficulty;
-import fr.uge.but.schtroumpf.model.SmurfVillage;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
-public class Main {
-    public static void main(String args[]) {
-        SmurfVillage village = new SmurfVillage(Difficulty.NORMAL);
+public class Main extends Application {
 
-        village.produceRandomResources();
-        village.consumeResources();
+    @Override
+    public void start(Stage primaryStage) {
 
-        IO.println(village.getResourcesView());
-        IO.println("Crises: " + village.countCrises());
-        IO.println("Défaite: " + village.hasLostByCrises());
-        IO.println("Score final: " + village.calculateFinalScore());
+        try {
+
+            AnchorPane root = FXMLLoader.load(
+                    getClass().getResource(
+                            "/fr/uge/but/schtroumpf/view/menu.fxml"));
+
+            Scene scene = new Scene(root, 1280, 720);
+
+            String css = getClass().getResource(
+                    "/fr/uge/but/schtroumpf/view/style.css")
+                    .toExternalForm();
+
+            scene.getStylesheets().add(css);
+
+            primaryStage.setTitle("Conseil des Schtroumpfs");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
