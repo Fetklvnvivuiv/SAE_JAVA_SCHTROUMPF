@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uge.but.schtroumpf.controller.DefeatController">
+
+   <children>
+
+      <VBox alignment="CENTER" spacing="18.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
+
+         <children>
+
+            <Label styleClass="defeat-title" text="DÉFAITE..." />
+
+            <Label styleClass="defeat-subtitle" text="Le village des Schtroumpfs n’a pas survécu à la crise" wrapText="true" />
+
+         </children>
+
+      </VBox>
+
+      <HBox alignment="CENTER" spacing="0.0" styleClass="stats-container" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="220.0">
+
+         <children>
+
+            <VBox alignment="CENTER" prefWidth="240.0" spacing="10.0">
+
+               <children>
+
+                  <Label fx:id="scoreLabel" styleClass="defeat-stat-number" text="850" />
+
+                  <Label styleClass="defeat-stat-text" text="Score final" wrapText="true" />
+
+               </children>
+
+            </VBox>
+
+            <Region styleClass="separator-vertical" />
+
+            <VBox alignment="CENTER" prefWidth="240.0" spacing="10.0">
+
+               <children>
+
+                  <Label fx:id="tourLabel" styleClass="defeat-stat-number" text="8/12" />
+
+                  <Label styleClass="defeat-stat-text" text="Tours survivés" wrapText="true" />
+
+               </children>
+
+            </VBox>
+
+            <Region styleClass="separator-vertical" />
+
+            <VBox alignment="CENTER" prefWidth="240.0" spacing="10.0">
+
+               <children>
+
+                  <Label fx:id="criseLabel" styleClass="defeat-stat-number" text="5" />
+
+                  <Label styleClass="defeat-stat-text" text="Crises subies" wrapText="true" />
+
+               </children>
+
+            </VBox>
+
+            <Region styleClass="separator-vertical" />
+
+            <VBox alignment="CENTER" prefWidth="240.0" spacing="10.0">
+
+               <children>
+
+                  <Label fx:id="ressourceLabel" styleClass="defeat-stat-number" text="-12" />
+
+                  <Label styleClass="defeat-stat-text" text="Ressources restantes" wrapText="true" />
+
+               </children>
+
+            </VBox>
+
+         </children>
+
+      </HBox>
+
+      <HBox alignment="TOP_CENTER" spacing="40.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="500.0">
+
+         <children>
+
+            <VBox prefWidth="390.0" prefHeight="210.0" spacing="24.0" styleClass="defeat-card">
+
+               <children>
+
+                  <Label styleClass="defeat-card-title" text="RESSOURCES ÉPUISÉES" wrapText="true" />
+
+                  <VBox fx:id="resourceContainer" spacing="14.0" />
+
+               </children>
+
+            </VBox>
+
+            <VBox prefWidth="390.0" prefHeight="210.0" spacing="24.0" styleClass="defeat-card">
+
+               <children>
+
+                  <Label styleClass="defeat-card-title" text="CATASTROPHES SUBIES" wrapText="true" />
+
+                  <VBox fx:id="eventContainer" spacing="14.0" />
+
+               </children>
+
+            </VBox>
+
+            <VBox prefWidth="390.0" prefHeight="210.0" spacing="24.0" styleClass="defeat-card">
+
+               <children>
+
+                  <Label styleClass="defeat-card-title" text="SCHTROUMPFS ÉPUISÉS" wrapText="true" />
+
+                  <VBox fx:id="smurfContainer" spacing="14.0" />
+
+               </children>
+
+            </VBox>
+
+         </children>
+
+      </HBox>
+
+      <HBox alignment="CENTER" spacing="45.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+
+         <children>
+
+            <Button mnemonicParsing="false" onAction="#retourMenu" prefHeight="60.0" prefWidth="280.0" styleClass="defeat-button-dark" text="MENU PRINCIPAL" />
+
+            <Button mnemonicParsing="false" onAction="#rejouer" prefHeight="60.0" prefWidth="280.0" styleClass="defeat-button-red" text="REJOUER" />
+
+         </children>
+
+      </HBox>
+
+   </children>
+
+   <styleClass>
+
+      <String fx:value="background-defeat" />
+
+   </styleClass>
+
+</AnchorPane>

@@ -15,7 +15,7 @@ public class Main extends Application {
 
             AnchorPane root = FXMLLoader.load(
                     getClass().getResource(
-                            "/fr/uge/but/schtroumpf/view/menu.fxml"));
+                            "/fr/uge/but/schtroumpf/view/defaite.fxml"));
 
             Scene scene = new Scene(root, 1280, 720);
 
