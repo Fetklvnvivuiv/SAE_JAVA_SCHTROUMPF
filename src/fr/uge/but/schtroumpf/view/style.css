@@ -230,9 +230,11 @@
 
 .sub_title_gameplay{
 	-fx-font-size : 10px;
-	-fx-text-fill : #7E7E7E;
+	-fx-text-fill : #484848;
 		
 }
+
+
 
 .btn_princip_gameplay{
 	-fx-background-color: black;
@@ -240,10 +242,28 @@
 	-fx-background-radius :7px;
 	-fx-text-fill : white;
 	-fx-border-color: black;
-	-fx-padding : 9px;
-	-fx-font-size : 11px;
-	
+	-fx-padding : 9px 20px 9px 20px;
+	-fx-font-size : 11px;	
 }
+
+.btn_princip_gameplay_colored{
+	-fx-background-color: #02AFEA;
+	-fx-border-radius: 7px;
+	-fx-background-radius :7px;
+	-fx-text-fill : white;
+	-fx-padding : 9px 20px 9px 20px;
+	-fx-font-size : 11px;	
+}
+
+.btn_second_gameplay{
+	-fx-background-color: white;
+	-fx-border-radius: 7px;
+	-fx-background-radius :7px;
+	-fx-border-color: black;
+	-fx-padding : 9px 20px 9px 20px;
+	-fx-font-size : 11px;	
+}
+
 
 .section_gameplay{
 	-fx-border-color : #D9D9D9;
@@ -255,12 +275,15 @@
 	-fx-border-color : #D9D9D9;
 	-fx-border-radius: 7px;
 	-fx-padding: 0 20px 0 20px;
+	-fx-font-size : 11;
+	
 }
 
 .smurf_card_on{
 	-fx-border-color : black;
 	-fx-border-radius: 10px;
 	-fx-padding: 0 20px 0 20px;
+	-fx-font-size : 11;
 }
 
 .pay_to_win_smurf_card{
@@ -293,6 +316,9 @@
 	-fx-border-radius: 10px;
     -fx-background-radius: 10px;
 }
+
+
+
 
 
 
