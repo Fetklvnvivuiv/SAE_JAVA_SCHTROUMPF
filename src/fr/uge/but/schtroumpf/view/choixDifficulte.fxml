@@ -60,4 +60,7 @@
       <String fx:value="titre2" />
       <String fx:value="background-choix" />
    </styleClass>
+   <styleClass>
+    <String fx:value="background-choix" />
+   </styleClass>
 </AnchorPane>
