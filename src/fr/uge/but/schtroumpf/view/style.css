@@ -68,13 +68,13 @@
 
 .stuff_card{
 	-fx-border-color : #EAEAEA;
-	-fx-border-radius : 4px;
+	-fx-border-radius : 7px;
 	-fx-padding : 3px;
 }
 
 .pay_to_win_stuff_card{
 	-fx-border-color : #E0AB27;
-	-fx-border-radius : 4px;
+	-fx-border-radius : 7px;
 	-fx-padding : 3px;
 	-fx-background-color : #FCF7E9;
 }
@@ -199,10 +199,16 @@
     -fx-text-alignment: center;
 }
 
+<<<<<<< HEAD
 
 .background-menu {
     -fx-background-image: url("ressource/background-menu.png");
     -fx-background-size: cover;
+=======
+.root {
+    
+    -fx-background-size: stretch;
+>>>>>>> branch 'master' of https://github.com/Fetklvnvivuiv/SAE_JAVA_SCHTROUMPF.git
     -fx-background-position: center center;
     -fx-background-repeat: no-repeat;
 }
@@ -213,6 +219,7 @@
     -fx-background-position: center center;
 }
 
+<<<<<<< HEAD
 
 
 
@@ -380,3 +387,93 @@
 .defeat-button-red:hover {
     -fx-background-color: linear-gradient(to bottom,#ff5555,#e00000);
 }
+=======
+.title_gameplay{
+	-fx-font-size : 18px;
+	-fx-font-family: "Balsamiq Sans Bold";
+}
+
+
+.title2_gameplay{
+	-fx-font-size : 14px;
+	-fx-font-family: "Balsamiq Sans Bold";
+}
+
+.title3_gameplay{
+	-fx-font-size : 12px;
+	-fx-font-family: "Balsamiq Sans Bold";
+}
+
+.sub_title_gameplay{
+	-fx-font-size : 10px;
+	-fx-text-fill : #7E7E7E;
+		
+}
+
+.btn_princip_gameplay{
+	-fx-background-color: black;
+	-fx-border-radius: 7px;
+	-fx-background-radius :7px;
+	-fx-text-fill : white;
+	-fx-border-color: black;
+	-fx-padding : 9px;
+	-fx-font-size : 11px;
+	
+}
+
+.section_gameplay{
+	-fx-border-color : #D9D9D9;
+	-fx-border-radius: 7px;
+	-fx-padding : 15px;
+}
+
+.smurf_card_off{
+	-fx-border-color : #D9D9D9;
+	-fx-border-radius: 7px;
+	-fx-padding: 0 20px 0 20px;
+}
+
+.smurf_card_on{
+	-fx-border-color : black;
+	-fx-border-radius: 10px;
+	-fx-padding: 0 20px 0 20px;
+}
+
+.pay_to_win_smurf_card{
+	-fx-border-color : #E0AB27;
+	-fx-border-radius: 10px;
+	-fx-padding: 0 20px 0 20px;
+	-fx-background-color : #FCF7E9;
+}
+
+.plus_number{
+	-fx-font-family :  "Balsamiq Sans Bold";
+	-fx-font-size : 15;
+	-fx-text-fill : #00C22A;
+}
+
+.less_number{
+	-fx-font-family :  "Balsamiq Sans Bold";
+	-fx-font-size : 15;
+	-fx-text-fill : #E90000;
+}
+
+.progress-bar .track {
+    -fx-background-color: white;
+    -fx-border-radius: 10px;
+	-fx-border-color : #D9d9d9;
+}
+
+.progress-bar .bar {
+    -fx-background-color: #00B4EE;
+	-fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+
+
+
+
+
+
+>>>>>>> branch 'master' of https://github.com/Fetklvnvivuiv/SAE_JAVA_SCHTROUMPF.git
