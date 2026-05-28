@@ -23,10 +23,8 @@ public class Smurfette implements Character {
         return name;
     }
 
-    // =========================
     // NEGOCIER AVEC LES VILLAGES VOISINS
     // +GOLD ou +SARSAPARILLA
-    // =========================
 
     public void negotiateWithNeighboringVillages(SmurfVillage village) {
 
@@ -48,10 +46,8 @@ public class Smurfette implements Character {
         }
     }
 
-    // =========================
     // APAISER UN CONFLIT INTERNE
     // +MORALE
-    // =========================
 
     public void resolveInternalConflict(SmurfVillage village) {
 
@@ -60,11 +56,10 @@ public class Smurfette implements Character {
         village.addResource(ResourceType.MORALE, 1);
     }
 
-    // =========================
+    
     // ORGANISER UNE FETE
     // -BERRIES / +MORALE temporaire
-    // =========================
-
+    
     public void organizeParty(SmurfVillage village) {
 
         Objects.requireNonNull(village);
@@ -81,9 +76,8 @@ public class Smurfette implements Character {
         village.addTemporaryMoraleBoost(2);
     }
 
-    // =========================
+
     // CHOIX D'ACTION
-    // =========================
 
     @Override
     public void playTurn(int choice, SmurfVillage village) {
