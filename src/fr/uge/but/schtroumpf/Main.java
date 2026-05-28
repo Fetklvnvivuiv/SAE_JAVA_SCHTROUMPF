@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         ControleurJeu jeu = new ControleurJeu();
-        jeu.lancerPartie();
 
+        jeu.lancerPartie();
     }
 }

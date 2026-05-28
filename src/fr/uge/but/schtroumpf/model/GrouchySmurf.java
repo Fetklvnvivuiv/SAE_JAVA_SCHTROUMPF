@@ -1,54 +1,117 @@
 package fr.uge.but.schtroumpf.model;
 
 import java.util.Objects;
-import java.util.Random;
 
 public class GrouchySmurf implements Character {
-	private final String name;
-    private final Random random;
-	
-    public GrouchySmurf (String name) {
+
+    private final String name;
+
+    public GrouchySmurf(String name) {
+
         Objects.requireNonNull(name);
+
         this.name = name;
-        this.random = new Random();
     }
-    
+
     public String getName() {
+
         return name;
     }
-    
-    // surveiller le village : on gagne de la defense 
+
+    // =========================
+    // SURVEILLER LE VILLAGE
+    // +DEFENSE
+    // =========================
+
     public void monitorSurroundings(SmurfVillage village) {
+
         Objects.requireNonNull(village);
+
         village.addResource(ResourceType.DEFENSE, 1);
     }
 
-    // denoncer un schtroumpf feignant : on gagne de l'or mais on perd 
-    // de la morale --> ce qui decourage les schtroumpfs
-    public void reportLazySmurf(SmurfVillage village) {
-    	Objects.requireNonNull(village);
-    	village.removeResource(ResourceType.MORALE, 1);
-    	village.addResource(ResourceType.GOLD, 1);
-    }
-    
-    // prevenir une attaque : annule un evenement negatif
-    public void preventAttack(SmurfVillage village) {
-    	Objects.requireNonNull(village);
-    	// if true, le village est mis en protection, le prochain evenement negatif est annule
-    	village.setProtected(true);
-    	// setProtected a
-    }
-    
-	@Override
-	public void playTurn(SmurfVillage village) {
-		// Simulation d'un choix en attendant l'interaction console (Vue) Nassim T.
-	    int action = random.nextInt(3); 
-	    
-	    switch (action) {
-	        case 0 -> monitorSurroundings(village);
-	        case 1 -> reportLazySmurf(village);
-	        case 2 -> preventAttack(village);
-	    }
-	}
-}
+    // =========================
+    // DENONCER UN FEIGNANT
+    // +GOLD / -MORALE
+    // =========================
 
+    public void reportLazySmurf(SmurfVillage village) {
+
+        Objects.requireNonNull(village);
+
+        if (village.getResource(ResourceType.MORALE) < 1) {
+
+            throw new IllegalArgumentException(
+                    "Le moral du village est deja trop faible."
+            );
+        }
+
+        village.removeResource(ResourceType.MORALE, 1);
+
+        village.addResource(ResourceType.GOLD, 1);
+    }
+
+    // =========================
+    // PREVENIR UNE ATTAQUE
+    // Le prochain evenement negatif est annule
+    // =========================
+
+    public void preventAttack(SmurfVillage village) {
+
+        Objects.requireNonNull(village);
+
+        village.setProtected(true);
+    }
+
+    // =========================
+    // INTIMIDER LES ENNEMIS
+    // +DEFENSE / -MORALE
+    // =========================
+
+    public void intimidateEnemies(SmurfVillage village) {
+
+        Objects.requireNonNull(village);
+
+        if (village.getResource(ResourceType.MORALE) < 1) {
+
+            throw new IllegalArgumentException(
+                    "Pas assez de moral pour intimider les ennemis."
+            );
+        }
+
+        village.addResource(ResourceType.DEFENSE, 2);
+
+        village.removeResource(ResourceType.MORALE, 1);
+    }
+
+    // =========================
+    // CHOIX D'ACTION
+    // =========================
+
+    @Override
+    public void playTurn(int choice, SmurfVillage village) {
+
+        Objects.requireNonNull(village);
+
+        switch (choice) {
+
+            case 1 -> monitorSurroundings(village);
+
+            case 2 -> reportLazySmurf(village);
+
+            case 3 -> preventAttack(village);
+
+            case 4 -> intimidateEnemies(village);
+
+            default -> throw new IllegalArgumentException(
+                    "Choix invalide."
+            );
+        }
+    }
+
+    @Override
+    public String toString() {
+
+        return name;
+    }
+}

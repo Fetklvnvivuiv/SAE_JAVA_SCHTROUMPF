@@ -32,4 +32,9 @@ public record Resource(ResourceType type, int value) {
             default -> 0;
         };
     }
+    
+    @Override
+    public String toString() {
+        return type + " : " + value;
+    }
 }
