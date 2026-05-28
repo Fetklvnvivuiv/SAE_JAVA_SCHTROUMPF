@@ -25,7 +25,8 @@ public class ControleurJeu {
         councilMembers.add(new BuilderSmurf("Handy"));
         councilMembers.add(new GourmetSmurf("Gourmet"));
         councilMembers.add(new GrouchySmurf("Grouchy"));
-        // On ajoutera Smurfette et PapaSmurf quand ils seront prêts
+        councilMembers.add(new GrandSmurf("Papa Smurf"));
+        councilMembers.add(new Smurfette("Smurfette"));
 	}
 	
 	public void lancerPartie() {
