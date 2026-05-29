@@ -3,6 +3,7 @@ package fr.uge.but.schtroumpf.controller;
 import fr.uge.but.schtroumpf.model.*;
 import fr.uge.but.schtroumpf.model.Character;
 import fr.uge.but.schtroumpf.view.AffichageJeu;
+import fr.uge.but.schtroumpf.view.LecteurSaisie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,29 +14,24 @@ public class ControleurJeu {
     private final SmurfVillage village;
     private final EventManager eventManager;
     private final AffichageJeu affichage;
+    private final LecteurSaisie lecteur;
     public ControleurJeu() {
 
         this.affichage = new AffichageJeu();
+        this.lecteur = new LecteurSaisie();
         
-        // =========================
-        // CHOIX DIFFICULTE
-        // =========================
+        // choix de la difficulte
         affichage.afficherChoixDifficulte();
 
-        int difficultyChoice = Integer.parseInt(IO.readln());
-        Difficulty difficulty;
+        int difficultyChoice = lecteur.lireEntierEntre(1, 3);
         
-        switch (difficultyChoice) {
+        Difficulty difficulty = switch (difficultyChoice) {
 
-            case 1 -> difficulty = Difficulty.EASY;
-            case 2 -> difficulty = Difficulty.NORMAL;
-            case 3 -> difficulty = Difficulty.HARD;
+            case 1 -> Difficulty.EASY;
+            case 3 -> Difficulty.HARD;
+            default -> Difficulty.NORMAL;
 
-            default -> {
-                IO.print("[!] Choix invalide. Difficulté NORMAL choisie.\n");
-                difficulty = Difficulty.NORMAL;
-            }
-        }
+        };
 
         // =========================
         // INITIALISATION MODELE
@@ -45,12 +41,11 @@ public class ControleurJeu {
         this.eventManager = new EventManager();
 
         // =========================
-        // CONSEIL DES SCHTROUMPFS
-        // =========================
+        // on demarre le conseil avec une arrayList et on ajoute ses membres
 
         this.councilMembers = new ArrayList<>();
         councilMembers.add(new GrandSmurf("Papa Smurf"));
-        councilMembers.add(new BuilderSmurf("Handy"));
+        councilMembers.add(new HandySmurf("Handy"));
         councilMembers.add(new GourmetSmurf("Gourmet"));
         councilMembers.add(new Smurfette("Smurfette"));
         councilMembers.add(new GrouchySmurf("Grouchy"));
@@ -58,21 +53,17 @@ public class ControleurJeu {
 
     public void lancerPartie() {
 
-        // =========================
-        // BOUCLE PRINCIPALE
+        // boucle principale des 12 mois du jeu
         // =========================
 
         for (int month = 1; month <= 12; month++) {
             affichage.afficherVillage(village, month);
-            // =========================
-            // PHASE 1 : PRODUCTION
-            // =========================
+            
+            // phase 1, on produit les ressources
             affichage.afficherPhaseProduction();
             village.produceRandomResources();
 
-            // =========================
-            // PHASE 2 : EVENEMENT
-            // =========================
+            // phase 2, on gere les evenements
 
             affichage.afficherPhaseEvenement();
             Event currentEvent = eventManager.getRandomEvent();
@@ -87,26 +78,19 @@ public class ControleurJeu {
             int actionsRestantes = 2;
             while (actionsRestantes > 0) {
 
-                IO.print("\nActions restantes : " + actionsRestantes + "\n");
-                affichage.afficherChoixSchtroumpf();
-                int smurfChoice;
+            	affichage.afficherMessage("\nActions restantes : " + actionsRestantes);
+                affichage.afficherChoixSchtroumpf();                
                 
-                try {
-                    smurfChoice = Integer.parseInt(IO.readln());
+                int smurfChoice = lecteur.lireEntierEntre(1, 6);
 
-                } catch (NumberFormatException e) {
-
-                    IO.print("[!] Entrée invalide.\n");
-                    continue;
-                }
-
+            
                 // =========================
                 // PASSER
                 // =========================
 
                 if (smurfChoice == 6) {
-                    IO.print("[*] Fin des actions du tour.\n");
-                    break;
+                	affichage.afficherMessage("[*] Fin des actions du tour."); 
+                	break;
                 }
 
                 Character selectedSmurf;
@@ -120,7 +104,7 @@ public class ControleurJeu {
 
                     default -> {
 
-                        IO.print("[!] Choix invalide.\n");
+                    	affichage.afficherMessage("[!] Choix invalide.");
                         continue;
                     }
                 }
@@ -130,12 +114,11 @@ public class ControleurJeu {
                 // =========================
 
                 int actionChoice;
-                try {
 
                     if (selectedSmurf instanceof GrandSmurf) {
                         affichage.afficherActionsGrandSmurf();
 
-                    } else if (selectedSmurf instanceof BuilderSmurf) {
+                    } else if (selectedSmurf instanceof HandySmurf) {
                         affichage.afficherActionsBricoleur();
 
                     } else if (selectedSmurf instanceof GourmetSmurf) {
@@ -148,13 +131,8 @@ public class ControleurJeu {
                         affichage.afficherActionsGrognon();
                     }
 
-                    actionChoice = Integer.parseInt(IO.readln());
+                    actionChoice = lecteur.lireEntier();
 
-                } catch (NumberFormatException e) {
-                	
-                    IO.print("[!] Action invalide.\n");
-                    continue;
-                }
 
                 // =========================
                 // EXECUTION ACTION
@@ -163,11 +141,11 @@ public class ControleurJeu {
                 try {
 
                     selectedSmurf.playTurn(actionChoice, village);
-                    IO.print("[OK] Action exécutée.\n");
+                    affichage.afficherMessage("[OK] Action exécutée.");
                     actionsRestantes--;
 
                 } catch (IllegalArgumentException e) {
-                    IO.print("[!] " + e.getMessage() + "\n");
+                	affichage.afficherMessage("[!] " + e.getMessage());
                 }
             }
 
@@ -177,6 +155,7 @@ public class ControleurJeu {
 
             affichage.afficherPhaseConsommation();
             village.consumeResources();
+            
 
             // =========================
             // PHASE 5 : CRISES
@@ -204,12 +183,18 @@ public class ControleurJeu {
             village.endTurnCleanup();
         }
 
+        
         // =========================
         // FIN PARTIE
         // =========================
 
         int finalScore = village.calculateFinalScore();
-        affichage.afficherVictoire(finalScore);
+        if (village.hasWon()) {
+            affichage.afficherVictoire(finalScore);
+        } else {
+            affichage.afficherDefaiteScore(finalScore);
+        }
         affichage.afficherHistorique(eventManager);
+
     }
 }

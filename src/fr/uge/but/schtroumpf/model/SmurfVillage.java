@@ -271,10 +271,6 @@ public class SmurfVillage {
 
     public void endTurnCleanup() {
 
-        // Réinitialisation protection Grognon
-
-        this.isProtected = false;
-
         // Ajout de Nassim.T
         // Gestion du bonus temporaire de moral
 

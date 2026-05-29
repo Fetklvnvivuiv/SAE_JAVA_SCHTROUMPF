@@ -3,13 +3,13 @@ package fr.uge.but.schtroumpf.model;
 import java.util.Objects;
 import java.util.Random;
 
-public class BuilderSmurf implements Character {
+public class HandySmurf implements Character {
 
     private final String name;
 
     private final Random random;
 
-    public BuilderSmurf(String name) {
+    public HandySmurf(String name) {
 
         Objects.requireNonNull(name);
 

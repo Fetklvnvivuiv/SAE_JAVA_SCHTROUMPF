@@ -63,6 +63,8 @@ public class Event {
 
         if (village.isProtected() && isNegative()) {
 
+            village.setProtected(false);
+            
             return;
         }
 
