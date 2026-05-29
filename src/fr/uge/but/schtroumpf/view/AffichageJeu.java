@@ -8,7 +8,12 @@ import fr.uge.but.schtroumpf.model.SmurfVillage;
 import java.util.Map;
 
 public class AffichageJeu {
-
+	
+	
+	public void afficherMessage(String message) {
+	    IO.print(message + "\n");
+	}
+	
     // =========================
     // MENU DIFFICULTE
     // =========================
@@ -231,7 +236,22 @@ Votre choix :
 
         IO.print("Le village a succombe aux crises au mois " + month + ".\n");
     }
+    
+    public void afficherDefaiteScore(int score) {
 
+        IO.print("""
+╔══════════════════════════════════════════════════════╗
+║                     DEFAITE                         ║
+╚══════════════════════════════════════════════════════╝
+    """);
+
+        IO.print("Le village a survecu aux 12 mois, mais son score final est insuffisant.\n");
+
+        IO.print("Score final : " + score + "\n");
+    }
+    
+    
+    
     // =========================
     // VICTOIRE
     // =========================
