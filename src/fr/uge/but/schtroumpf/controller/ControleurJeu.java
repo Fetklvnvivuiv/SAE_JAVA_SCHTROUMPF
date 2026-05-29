@@ -17,8 +17,8 @@ public class ControleurJeu {
     private final LecteurSaisie lecteur;
     public ControleurJeu() {
 
-        this.affichage = new AffichageJeu();
-        this.lecteur = new LecteurSaisie();
+        this.affichage = new AffichageJeu(); //fait la vue console
+        this.lecteur = new LecteurSaisie(); // initialise le lecteur de choix
         
         // choix de la difficulte
         affichage.afficherChoixDifficulte();
@@ -33,14 +33,12 @@ public class ControleurJeu {
 
         };
 
-        // =========================
-        // INITIALISATION MODELE
-        // =========================
-
+        
+        // on fait le village de difficulte choisie grace au modele 
+        
         this.village = new SmurfVillage(difficulty);
-        this.eventManager = new EventManager();
+        this.eventManager = new EventManager(); // gestionnaire d'evenements
 
-        // =========================
         // on demarre le conseil avec une arrayList et on ajoute ses membres
 
         this.councilMembers = new ArrayList<>();
@@ -54,26 +52,22 @@ public class ControleurJeu {
     public void lancerPartie() {
 
         // boucle principale des 12 mois du jeu
-        // =========================
 
         for (int month = 1; month <= 12; month++) {
             affichage.afficherVillage(village, month);
+            // on realise toutes les phases attendues : 
             
             // phase 1, on produit les ressources
             affichage.afficherPhaseProduction();
             village.produceRandomResources();
 
-            // phase 2, on gere les evenements
-
+            // phase 2, on appelle et affichage les evenements aleatoires
             affichage.afficherPhaseEvenement();
             Event currentEvent = eventManager.getRandomEvent();
             affichage.afficherEvenement(currentEvent);
             currentEvent.apply(village);
 
-            // =========================
-            // PHASE 3 : CONSEIL
-            // =========================
-
+            // phase 3, le conseil a lieu : on choisit un schtroumpf et son action
             affichage.afficherPhaseConseil();
             int actionsRestantes = 2;
             while (actionsRestantes > 0) {
@@ -82,11 +76,9 @@ public class ControleurJeu {
                 affichage.afficherChoixSchtroumpf();                
                 
                 int smurfChoice = lecteur.lireEntierEntre(1, 6);
-
+                // lecteur pour lire le choix utilisateur provenant directement de la vue
             
-                // =========================
-                // PASSER
-                // =========================
+                // si 6 choisit = option pour skip
 
                 if (smurfChoice == 6) {
                 	affichage.afficherMessage("[*] Fin des actions du tour."); 
