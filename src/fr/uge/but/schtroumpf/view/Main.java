@@ -17,7 +17,7 @@ public class Main extends Application {
            
             
             primaryStage.setScene(scene);
-            primaryStage.setTitle("Jeux");
+            primaryStage.setTitle("Jeux Schtroumpf");
             primaryStage.show();
 
         } catch (Exception e) {
