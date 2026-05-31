@@ -106,7 +106,7 @@
                      <children>
                         <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" spacing="15.0">
                            <children>
-                              <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" styleClass="smurf_card_on" VBox.vgrow="ALWAYS">
+                              <VBox id="gourmand" fx:id="cardGourmand" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" onMouseClicked="#smurfCardSelected" styleClass="smurf_card_on" VBox.vgrow="ALWAYS">
                                  <children>
                                     <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
                                        <image>
@@ -118,7 +118,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </VBox>
-                              <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" styleClass="smurf_card_off" VBox.vgrow="ALWAYS">
+                              <VBox id="grognon" fx:id="cardGrognon" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" onMouseClicked="#smurfCardSelected" styleClass="smurf_card_off" VBox.vgrow="ALWAYS">
                                  <children>
                                     <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
                                        <image>
@@ -130,7 +130,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </VBox>
-                              <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" styleClass="smurf_card_off" VBox.vgrow="ALWAYS">
+                              <VBox id="schtroumpfette" fx:id="cardSchtroumpfette" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" onMouseClicked="#smurfCardSelected" styleClass="smurf_card_off" VBox.vgrow="ALWAYS">
                                  <children>
                                     <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
                                        <image>
@@ -169,7 +169,7 @@
                         </VBox>
                         <VBox alignment="CENTER" layoutX="176.0" layoutY="10.0" maxWidth="1.7976931348623157E308" spacing="15.0">
                            <children>
-                              <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" styleClass="smurf_card_off" VBox.vgrow="ALWAYS">
+                              <VBox id="bricoleur" fx:id="cardBricoleur" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" onMouseClicked="#smurfCardSelected" styleClass="smurf_card_off" VBox.vgrow="ALWAYS">
                                  <children>
                                     <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
                                        <image>
@@ -181,7 +181,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </VBox>
-                              <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" styleClass="smurf_card_off" VBox.vgrow="ALWAYS">
+                              <VBox id="grand_schtroumpf" fx:id="cardGrandSchtroumpf" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" onMouseClicked="#smurfCardSelected" styleClass="smurf_card_off" VBox.vgrow="ALWAYS">
                                  <children>
                                     <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
                                        <image>

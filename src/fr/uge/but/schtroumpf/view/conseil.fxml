@@ -8,14 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="gamePane"
-      alignment="CENTER"
-      prefHeight="200.0"
-      prefWidth="100.0"
-      spacing="15.0"
-      stylesheets="@style.css"
-      xmlns="http://javafx.com/javafx/24.0.1"
-      xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="gamePane" alignment="CENTER" prefHeight="200.0" prefWidth="900.0" spacing="15.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uge.but.schtroumpf.controller.GameController">
 
    <children>
 
@@ -29,7 +22,7 @@
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
          <children>
 
-            <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" spacing="15.0">
+            <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" onMouseClicked="#smurfCardSelected" spacing="15.0">
                <children>
 
                   <VBox alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" styleClass="smurf_card_on" VBox.vgrow="ALWAYS">
@@ -79,11 +72,7 @@
 
                   <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="section_gameplay">
                      <children>
-                        <Label alignment="CENTER"
-                               maxWidth="1.7976931348623157E308"
-                               styleClass="title2_gameplay"
-                               text="Schtroumpf Gourmand"
-                               VBox.vgrow="ALWAYS" />
+                        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="title2_gameplay" text="Schtroumpf Gourmand" VBox.vgrow="ALWAYS" />
 
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
@@ -97,12 +86,7 @@
                      </children>
                   </VBox>
 
-                  <Button maxWidth="1.7976931348623157E308"
-                          mnemonicParsing="false"
-                          style="-fx-border-radius: 10;"
-                          styleClass="btn_princip_gameplay"
-                          text="Utiliser"
-                          VBox.vgrow="ALWAYS">
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-border-radius: 10;" styleClass="btn_princip_gameplay" text="Utiliser" VBox.vgrow="ALWAYS">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -111,11 +95,7 @@
                </children>
             </VBox>
 
-            <VBox alignment="CENTER"
-                  layoutX="176.0"
-                  layoutY="10.0"
-                  maxWidth="1.7976931348623157E308"
-                  spacing="15.0">
+            <VBox alignment="CENTER" layoutX="176.0" layoutY="10.0" maxWidth="1.7976931348623157E308" spacing="15.0">
 
                <children>
 

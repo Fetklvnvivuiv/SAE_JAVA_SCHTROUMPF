@@ -21,7 +21,7 @@ public class MenuController {
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        Scene scene = new Scene(root, 1280, 720);
+        Scene scene = new Scene(root, 900, 600);
 
         String css = getClass()
                 .getResource("/fr/uge/but/schtroumpf/view/style.css")
