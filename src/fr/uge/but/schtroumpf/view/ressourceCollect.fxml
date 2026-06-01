@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="300.0" spacing="40.0" style="-fx-background-color: white;" styleClass="section_gameplay" stylesheets="@style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="CENTER">
@@ -39,7 +38,7 @@
             </HBox>
          </children>
       </VBox>
-      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="btn_princip_gameplay" text="Collecter" VBox.vgrow="ALWAYS">
+      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#conseil" styleClass="btn_princip_gameplay" text="Collecter" VBox.vgrow="ALWAYS">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

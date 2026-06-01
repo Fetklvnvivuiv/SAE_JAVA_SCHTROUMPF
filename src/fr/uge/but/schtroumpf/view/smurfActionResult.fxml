@@ -37,7 +37,7 @@
             </HBox>
          </children>
       </VBox>
-      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="btn_princip_gameplay" text="Mois suivant" VBox.vgrow="ALWAYS">
+      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#afficherConseil" styleClass="btn_princip_gameplay" text="Mois suivant" VBox.vgrow="ALWAYS">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>

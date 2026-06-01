@@ -355,7 +355,7 @@
 
 .smurf_card_on{
 	-fx-border-color : black;
-	-fx-border-radius: 10px;
+	-fx-border-radius: 7px;
 	-fx-padding: 0 20px 0 20px;
 	-fx-font-size : 11;
 	-fx-border-width: 2px;

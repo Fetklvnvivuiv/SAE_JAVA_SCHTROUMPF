@@ -5,10 +5,10 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.Node;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
@@ -21,7 +21,6 @@ public class ChoixDifficulteController {
 
     @FXML
     private void retourMenu(ActionEvent event) throws IOException {
-
         Parent root = FXMLLoader.load(
             getClass().getResource("/fr/uge/but/schtroumpf/view/menu.fxml")
         );
@@ -29,12 +28,9 @@ public class ChoixDifficulteController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         Scene scene = new Scene(root, 900, 600);
-
-        String css = getClass()
-                .getResource("/fr/uge/but/schtroumpf/view/style.css")
-                .toExternalForm();
-
-        scene.getStylesheets().add(css);
+        scene.getStylesheets().add(
+            getClass().getResource("/fr/uge/but/schtroumpf/view/style.css").toExternalForm()
+        );
 
         stage.setScene(scene);
         stage.show();
@@ -42,7 +38,6 @@ public class ChoixDifficulteController {
 
     @FXML
     private void validerChoix(ActionEvent event) throws IOException {
-
         if (difficulteChoisie == null) {
             System.out.println("Aucune difficulté sélectionnée !");
             return;
@@ -50,19 +45,23 @@ public class ChoixDifficulteController {
 
         System.out.println("Difficulté validée : " + difficulteChoisie);
 
-        Parent root = FXMLLoader.load(
+        FXMLLoader loader = new FXMLLoader(
             getClass().getResource("/fr/uge/but/schtroumpf/view/interface.fxml")
         );
+
+        Parent root = loader.load();
+
+        GameController gameController = loader.getController();
+
+        // Écran affiché après le choix de difficulté
+        gameController.afficherRessourceCollect();
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         Scene scene = new Scene(root, 900, 600);
-
-        String css = getClass()
-                .getResource("/fr/uge/but/schtroumpf/view/style.css")
-                .toExternalForm();
-
-        scene.getStylesheets().add(css);
+        scene.getStylesheets().add(
+            getClass().getResource("/fr/uge/but/schtroumpf/view/style.css").toExternalForm()
+        );
 
         stage.setScene(scene);
         stage.show();
@@ -72,7 +71,6 @@ public class ChoixDifficulteController {
     private void cardSelected(MouseEvent event) {
         Node carteCliquee = (Node) event.getSource();
 
-        // 1. Toutes les cartes repassent en OFF
         for (Node carte : difficultyContainer.getChildren()) {
             carte.getStyleClass().remove("difficulty_card_on");
 
@@ -81,14 +79,12 @@ public class ChoixDifficulteController {
             }
         }
 
-        // 2. La carte cliquée passe en ON
         carteCliquee.getStyleClass().remove("difficulty_card_off");
 
         if (!carteCliquee.getStyleClass().contains("difficulty_card_on")) {
             carteCliquee.getStyleClass().add("difficulty_card_on");
         }
 
-        // 3. On récupère l'id de la carte
         difficulteChoisie = carteCliquee.getId();
 
         System.out.println("Carte cliquée : " + difficulteChoisie);

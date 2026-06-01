@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="500.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="500.0" spacing="30.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.uge.but.schtroumpf.controller.GameController">
+<VBox maxHeight="-Infinity" maxWidth="500.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="500.0" spacing="30.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox prefWidth="200.0" VBox.vgrow="ALWAYS">
          <children>
-            <Button mnemonicParsing="false" styleClass="btn_second_gameplay" text="Retour">
+            <Button mnemonicParsing="false" onAction="#afficherConseil" styleClass="btn_second_gameplay" text="Retour">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -40,13 +40,13 @@
             </VBox>
             <VBox maxWidth="1.7976931348623157E308" prefHeight="200.0" spacing="10.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="smurf_card_off" text="Cueillir des baies (+1 Baies)" VBox.vgrow="ALWAYS">
+                  <Label id="c1" fx:id="c1" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#choiceSelected" styleClass="smurf_card_off" text="Cueillir des baies (+1 Baies)" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="smurf_card_off" text="Cueillir des baies (+1 Baies)" VBox.vgrow="ALWAYS" />
-                  <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="smurf_card_off" text="Cueillir des baies (+1 Baies)" VBox.vgrow="ALWAYS" />
+                  <Label id="c2" fx:id="c2" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#choiceSelected" styleClass="smurf_card_off" text="Cueillir des baies (+1 Baies)" VBox.vgrow="ALWAYS" />
+                  <Label id="c3" fx:id="c3" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#choiceSelected" styleClass="smurf_card_off" text="Cueillir des baies (+1 Baies)" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
          </children>
